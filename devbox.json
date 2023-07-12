@@ -1,0 +1,35 @@
+{
+  "packages": [
+    "rustup@latest",
+    "libiconv@latest",
+    "flutter@latest",
+    "zip@latest",
+    "unzip@latest",
+    "cmake@latest",
+    "ninja@latest",
+    "clang@latest",
+    "pkg-config@latest",
+    "gtk3@latest",
+    "bash@latest",
+    "glibcLocales@latest"
+  ],
+  "env": {
+    "CMAKE_SYSTEM_PREFIX_PATH": "$PWD/.devbox/virtenv/.wrappers/lib",
+    "PROJECT_DIR": "$PWD"
+  },
+  "shell": {
+    "init_hook": [
+      "source scripts/set-env.sh",
+      "rustup default stable",
+      "cargo fetch"
+    ],
+    "scripts": {
+      "build": "cargo build",
+      "build-docs": "cargo doc",
+      "run": "cargo run",
+      "test": [
+        "cargo test -- --show-output"
+      ]
+    }
+  }
+}
